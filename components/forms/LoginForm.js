@@ -32,11 +32,8 @@ export default function LoginForm() {
   const router = useRouter();
   const [message, setMessage] = useState();
 
-  const handleSubmit = async ({ username, password }) => {
-    const { ok, status, data } = await post('/api/auth/login', {
-      username,
-      password,
-    });
+  const handleSubmit = async () => {
+    const { ok, status, data } = await post('/api/auth/okta');
 
     if (ok) {
       return router.push('/');
